@@ -99,12 +99,13 @@ body {
 }
 
 .btn-join {
-    padding: 0.8rem 1.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.9rem;
     text-transform: uppercase;
+    color: var(--color-primary);
+    /* #e63946 */
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .menu-trigger {
