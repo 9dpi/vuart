@@ -1,0 +1,343 @@
+:root {
+    /* Colors - Bold Minimalist Style */
+    --color-primary: #E63946;
+    /* Vibrant Red Accent */
+    --color-bg-primary: #F8F9FA;
+    /* Light Grey/White Background */
+    --color-bg-secondary: #FFFFFF;
+
+    --color-text-primary: #1D3557;
+    /* Deep Navy for text */
+    --color-text-secondary: #457B9D;
+    --color-text-muted: #A8DADC;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    --spacing-2xl: 6rem;
+
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+
+    /* Transitions */
+    --transition-slow: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-base: 0.3s ease;
+}
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow: hidden;
+    /* Modern app-like feel */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Layout ===== */
+.app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+/* ===== Header ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    letter-spacing: -2px;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 900;
+    margin-right: 0.5rem;
+}
+
+.logo-icon::before {
+    content: 'C';
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.btn-join {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.menu-trigger {
+    cursor: pointer;
+}
+
+/* ===== Main Slider Area ===== */
+.slider-container {
+    flex: 1;
+    position: relative;
+    overflow: visible;
+}
+
+.slider-wrapper {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.artwork-card {
+    position: relative;
+    min-width: 300px;
+    height: 450px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: var(--transition-slow);
+    cursor: pointer;
+    filter: brightness(0.85);
+}
+
+.artwork-card.active {
+    min-width: 450px;
+    height: 450px;
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    filter: brightness(1);
+    transform: none;
+}
+
+.artwork-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artwork-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-lg);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    opacity: 0;
+    transition: var(--transition-base);
+}
+
+.artwork-card.active .artwork-content {
+    opacity: 1;
+}
+
+.brand-tag {
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.artwork-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.artwork-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ===== Slider Controls ===== */
+.slider-info {
+    position: absolute;
+    bottom: 220px;
+    /* Positioned relative to app-container bottom */
+    right: var(--spacing-2xl);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    z-index: 20;
+}
+
+.progress-bar-container {
+    width: 200px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--color-primary);
+    width: 50%;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 800;
+}
+
+.current-num {
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--color-text-primary);
+    min-width: 3.5rem;
+}
+
+.numbers-list {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.numbers-list span {
+    font-size: 1rem;
+    opacity: 0.2;
+    transition: var(--transition-base);
+    cursor: pointer;
+}
+
+.numbers-list span.active {
+    opacity: 1;
+    color: var(--color-text-primary);
+}
+
+/* ===== Footer ===== */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+}
+
+.footer-left h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.newsletter span {
+    font-weight: 800;
+    font-size: 0.8rem;
+}
+
+.input-group {
+    display: flex;
+}
+
+.input-group input {
+    padding: 1rem;
+    border: none;
+    background: white;
+    width: 250px;
+    font-family: inherit;
+}
+
+.btn-send {
+    background: var(--color-primary);
+    color: white;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.footer-links a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.6;
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-icons svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .app-container {
+        padding: var(--spacing-lg);
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .artwork-card.active {
+        min-width: 350px;
+    }
+}
