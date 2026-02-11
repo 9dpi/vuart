@@ -35,56 +35,56 @@
 
         <!-- Masonry Grid -->
         <main class="masonry-grid">
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/DiHoc.jpg', 'Grateful Heart')">
                 <img src="images/DiHoc.jpg" alt="Đi Học">
                 <div class="item-overlay">
                     <h3>Grateful Heart</h3>
                     <p>The path of learning</p>
                 </div>
             </div>
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/LetsGo.jpg', 'Journey Begins')">
                 <img src="images/LetsGo.jpg" alt="Lên Đường">
                 <div class="item-overlay">
                     <h3>Journey Begins</h3>
                     <p>Chasing new horizons</p>
                 </div>
             </div>
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/HeoBo.jpg', 'Quiet Riverside')">
                 <img src="images/HeoBo.jpg" alt="Heo Bờ">
                 <div class="item-overlay">
                     <h3>Quiet Riverside</h3>
                     <p>Gentle life by the water</p>
                 </div>
             </div>
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/DuyetBinh.jpg', 'Ceremony')">
                 <img src="images/DuyetBinh.jpg" alt="Duyệt Binh">
                 <div class="item-overlay">
                     <h3>Ceremony</h3>
                     <p>Order and precision</p>
                 </div>
             </div>
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/41_Boat@3x.png', 'Sea Boat')">
                 <img src="images/41_Boat@3x.png" alt="Thuyền">
                 <div class="item-overlay">
                     <h3>Sea Boat</h3>
                     <p>Into the vast blue</p>
                 </div>
             </div>
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/Qekquek@3x.png', 'Qekquek')">
                 <img src="images/Qekquek@3x.png" alt="Qekquek">
                 <div class="item-overlay">
                     <h3>Qekquek</h3>
                     <p>Modern abstract</p>
                 </div>
             </div>
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/hero_image@3x.png', 'Portrait')">
                 <img src="images/hero_image@3x.png" alt="Hero">
                 <div class="item-overlay">
                     <h3>Portrait</h3>
                     <p>Lifelike strokes</p>
                 </div>
             </div>
-            <div class="grid-item" data-aos="fade-up">
+            <div class="grid-item" onclick="openViewer('images/WildWest_SteamPunk@3x.png', 'Wild West')">
                 <img src="images/WildWest_SteamPunk@3x.png" alt="WildWest">
                 <div class="item-overlay">
                     <h3>Wild West</h3>
@@ -98,10 +98,45 @@
         </footer>
     </div>
 
+    <!-- Image Viewer Modal -->
+    <div class="viewer-modal" id="viewerModal">
+        <div class="modal-close" onclick="closeViewer()">&times;</div>
+        <img class="viewer-image" id="viewerImage" src="" alt="Full View">
+        <div class="viewer-caption" id="viewerCaption"></div>
+    </div>
+
     <script>
         // Simple entry animation
         document.querySelectorAll('.grid-item').forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        const modal = document.getElementById('viewerModal');
+        const modalImg = document.getElementById('viewerImage');
+        const caption = document.getElementById('viewerCaption');
+
+        // Function to open full view
+        function openViewer(src, title) {
+            modal.classList.add('active');
+            modalImg.src = src;
+            caption.textContent = title;
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close full view
+        function closeViewer() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeViewer();
+        });
+
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeViewer();
         });
     </script>
 </body>
