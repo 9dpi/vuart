@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVQ Artworks - All Collections</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="exhibition.css">
+</head>
+
+<body>
+    <div class="exhibition-container">
+        <!-- Header -->
+        <header class="exhibition-header">
+            <div class="header-left">
+                <a href="index.html" class="back-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Back to Showcase</span>
+                </a>
+                <h1 class="page-title">All Collections</h1>
+            </div>
+            <div class="header-right">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span>VQ</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Masonry Grid -->
+        <main class="masonry-grid">
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/DiHoc.jpg" alt="Đi Học">
+                <div class="item-overlay">
+                    <h3>Đi Học</h3>
+                    <p>Hành trình tri thức</p>
+                </div>
+            </div>
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/LetsGo.jpg" alt="Lên Đường">
+                <div class="item-overlay">
+                    <h3>Lên Đường</h3>
+                    <p>Khám phá chân trời</p>
+                </div>
+            </div>
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/HeoBo.jpg" alt="Heo Bờ">
+                <div class="item-overlay">
+                    <h3>Heo Bờ</h3>
+                    <p>Bình yên làng quê</p>
+                </div>
+            </div>
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/DuyetBinh.jpg" alt="Duyệt Binh">
+                <div class="item-overlay">
+                    <h3>Duyệt Binh</h3>
+                    <p>Sự kỷ luật nghệ thuật</p>
+                </div>
+            </div>
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/41_Boat@3x.png" alt="Thuyền">
+                <div class="item-overlay">
+                    <h3>Sea Boat</h3>
+                    <p>Sóng nước mênh mông</p>
+                </div>
+            </div>
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/Qekquek@3x.png" alt="Qekquek">
+                <div class="item-overlay">
+                    <h3>Qekquek</h3>
+                    <p>Trừu tượng hiện đại</p>
+                </div>
+            </div>
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/hero_image@3x.png" alt="Hero">
+                <div class="item-overlay">
+                    <h3>Portrait</h3>
+                    <p>Nét vẽ chân thực</p>
+                </div>
+            </div>
+            <div class="grid-item" data-aos="fade-up">
+                <img src="images/WildWest_SteamPunk@3x.png" alt="WildWest">
+                <div class="item-overlay">
+                    <h3>Wild West</h3>
+                    <p>Steampunk style</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="exhibition-footer">
+            <p>© 2024 Cuongvq Artworks. Exploring the soul through watercolor.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple entry animation
+        document.querySelectorAll('.grid-item').forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+
+</html>
